@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import { GraphQLClient, gql } from 'graphql-request';
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const endpoint = "https://www.home-bio.com/graphql"
+	const endpoint = "https://blog.mscape.me/graphql"
 	const graphQLClient = new GraphQLClient(endpoint);
 	const referringURL = ctx.req.headers?.referer || null;
 	const pathArr = ctx.query.postpath as Array<string>;
@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://www.home-bio.com/` + encodeURI(path as string)
+					`https://blog.mscape.me/` + encodeURI(path as string)
 				}`,
 			},
 		};
